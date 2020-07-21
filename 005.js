@@ -25,7 +25,11 @@ for (let i = 0; i < 1000; i++) {
 
 }
 
+console.log('Even Number');
 console.log(even);
+console.log('Odd Number');
 console.log(odd);
+console.log('Prime Number');
 console.log(primeNumber);
+console.log('Prime Number Under 100');
 console.log(primeNumberUnder);
