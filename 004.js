@@ -1,4 +1,6 @@
+//Menggunakan operator modulo untuk mencari tahun kabisat
 const tahunKabisatOperator = (tahun) => {
+    //Tahun kabisat adalah tahun yang dapat dibagi dengan 4 dan tidak oleh 100 atau habis dibagi oleh 400
     const tahunKabisat = ((tahun % 4 == 0) && (tahun % 100 != 0)) || (tahun % 400 == 0);
     return tahunKabisat ? 'adalah tahun kabisat' : 'adalah bukan tahun kabisat';
 

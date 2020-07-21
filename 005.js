@@ -11,15 +11,15 @@ const bilanganPrimaCek = number => {
 }
 
 for (let i = 0; i < 1000; i++) {
-    if (i % 2 === 0)
+    if (i % 2 === 0) //cek jika bilangan genap
         even.push(i);
-    if (i % 2 === 1)
+    if (i % 2 === 1) //cek jika bilangan ganjil
         odd.push(i);
-    if (i % 5 === 0)
+    if (i % 5 === 0) //cek jika bilangan tersebut merupakan hasil perkalian 5 dengan memakai modulo
         multifive.push(i);
-    if (bilanganPrimaCek(i)) {
-        primeNumber.push(i);
-        if (i < 100)
+    if (bilanganPrimaCek(i)) { //cek apakah bilangan tersebut bilangan prima
+        primeNumber.push(i); //masukan bilangan ke list bilangan prima
+        if (i < 100) //jika bil. prima kurang dari 100 masukan ke list bil. prima kurang dari 100
             primeNumberUnder.push(i);
     }
 

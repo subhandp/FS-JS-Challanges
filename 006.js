@@ -5,7 +5,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
 let cencors = ['dolor', 'elit', 'quis', 'nisi', 'fugiat', 'proident', 'laborum'];
 
-let cencorsStar = (str) => {
+let cencorsStar = (str) => { //membuat char sensor (*) sesuai jumlah karakter yg di sensor
     let starChar = '';
     for (let index = 0; index < str.length; index++)
         starChar += '*';
@@ -14,8 +14,8 @@ let cencorsStar = (str) => {
 
 let tempWords;
 for (const cencor of cencors) {
-    let regex = new RegExp(cencor, 'gi');
-    tempWords = words.replace(regex, cencorsStar(cencor));
+    let regex = new RegExp(cencor, 'gi'); //mencari kata yg akan di sensor menggunakan regex ket. gi untuk global dan insensitive kapital
+    tempWords = words.replace(regex, cencorsStar(cencor)); //ganti kata yang disesnor dengan karakter *
     words = tempWords;
 }
 

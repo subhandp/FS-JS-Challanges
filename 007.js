@@ -22,6 +22,6 @@ let countWord = ['aku', 'ingin', 'dapat'];
 
 for (const word of countWord) {
     let regex = new RegExp(word, 'gi');
-    let resultFind = words.match(regex);
+    let resultFind = words.match(regex); //mencari kata  pada seluruh string menggunakan regex ket. gi untuk global dan insensitive kapital
     console.log(word + ' : ' + resultFind.length + ' kali ditemukan');
 }

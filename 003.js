@@ -1,6 +1,7 @@
+// npm install papaparse
 const csv = require('papaparse') // pakai library parser PapaParse untuk parse CSV
 const fs = require('fs') //library membaca file
-const file = fs.createReadStream('product-price.csv'); // load file
+const file = fs.createReadStream('product-price.csv'); // load file dengan filestream
 
 csv.parse(file, {
     download: true,
@@ -28,9 +29,9 @@ csv.parse(file, {
             if (resultProduct.hasOwnProperty(key)) {
                 const element = resultProduct[key]['PRICE'];
                 let priceRp = resultProduct[key]['PRICE'];
-                priceRp = Number.parseInt(priceRp);
-                priceRp = 'Rp.' + priceRp.toLocaleString('id');
-                resultProduct[key]['PRICE'] = priceRp;
+                priceRp = Number.parseInt(priceRp); //ubah dulu ke integer
+                priceRp = 'Rp.' + priceRp.toLocaleString('id'); //mengubah format angka ke format rupiah
+                resultProduct[key]['PRICE'] = priceRp; //ubah price dengan format angka rupiah
             }
         }
 
