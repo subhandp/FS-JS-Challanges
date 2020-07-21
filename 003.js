@@ -1,44 +1,39 @@
-// const csv = require('papaparse')
-// const fs = require('fs')
-// const file = fs.createReadStream('product-price.csv');
-// var productAndPrice;
-// csv.parse(file, {
-//     download: true,
-//     header: true,
-//     complete: function(results, file) {
-//         productAndPrice = results.data;
+const csv = require('papaparse') // pakai library parser PapaParse untuk parse CSV
+const fs = require('fs') //library membaca file
+const file = fs.createReadStream('product-price.csv'); // load file
 
-//     }
-// });
+csv.parse(file, {
+    download: true,
+    header: true,
+    complete: function(results, file) {
+        let resultProduct = results.data;
 
-// console.log(productAndPrice);
+        resultProduct.sort(function(a, b) { //memakai fungsi prototype javascript sort untuk sorting
+            var priceA = Number.parseInt(a['PRICE']); //ubah dulu ke integer
+            var priceB = Number.parseInt(b['PRICE']);
 
-//npm install csv-parser
-const csv = require('csv-parser')
-const fs = require('fs')
-const results = [];
-let resultSort;
+            //sorting dari harga termurah
+            if (priceA > priceB) {
+                return 1;
+            }
 
-var formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
+            if (priceA < priceB) {
+                return -1;
+            }
 
-formatter.format(2500); /* $2,500.00 */
+            return 0;
+        });
 
-
-fs.createReadStream('product-price.csv')
-    .pipe(csv())
-    .on('data', (data) => results.push(data))
-    .on('end', () => {
-
-        for (const key in results) {
-            if (object.hasOwnProperty(key)) {
-                results
-                const element = object[key];
-                results
+        for (const key in resultProduct) {
+            if (resultProduct.hasOwnProperty(key)) {
+                const element = resultProduct[key]['PRICE'];
+                let priceRp = resultProduct[key]['PRICE'];
+                priceRp = Number.parseInt(priceRp);
+                priceRp = 'Rp.' + priceRp.toLocaleString('id');
+                resultProduct[key]['PRICE'] = priceRp;
             }
         }
 
-    });
-console.log(results);
+        console.log(resultProduct);
+    }
+});
