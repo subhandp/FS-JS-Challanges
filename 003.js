@@ -6,8 +6,8 @@ const file = fs.createReadStream('product-price.csv'); // load file dengan files
 csv.parse(file, {
     download: true,
     header: true,
-    complete: function(results, file) {
-        let resultProduct = results.data;
+    complete: function(results, file) { //parse selesai
+        let resultProduct = results.data; //hasil parse csv PapaParse
 
         resultProduct.sort(function(a, b) { //memakai fungsi prototype javascript sort untuk sorting
             var priceA = Number.parseInt(a['PRICE']); //ubah dulu ke integer
