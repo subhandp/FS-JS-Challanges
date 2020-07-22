@@ -31,7 +31,7 @@ class Str {
         if (Array.isArray(listContain)) {
             for (const item of listContain) {
                 if (str.includes(item)) {
-                    console.log(true);
+                    console.log(gitrue);
                     return true;
                 }
             }
@@ -143,9 +143,9 @@ Str.contains('Saya ingin makan sate', 'makan') // true
 Str.contains('Saya ingin makan sate', 'rujak') // false
 Str.contains('Saya ingin makan sate', ['sate', 'rujak']) // true
 
-Str.random() // hef2nCi273c8D2dz
-Str.random(6) // ckS3jP
-Str.random(32) // tbFGeCycTBy8FTfXqOTkDd0YtlQngLt4
+Str.random()
+Str.random(6)
+Str.random(32)
 
 const title = 'JavaScript, TypeScript & Dart - Bahasa mana yang akan populer di 2018?'
 Str.slug(title) // javascript-typescript-dart-bahasa-mana-yang-akan-populer-di-2018
