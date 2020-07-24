@@ -1,35 +1,23 @@
-let even = [],
-    odd = [],
-    multifive = [],
-    primeNumber = [],
-    primeNumberUnder = [];
+const numbers = [...Array(1001).keys()]
 
-const bilanganPrimaCek = number => {
-    for (let i = 2; i < number; i++)
-        if (number % i === 0) return false;
-    return number > 1;
-}
-
-for (let i = 0; i < 1000; i++) {
-    if (i % 2 === 0) //cek jika bilangan genap
-        even.push(i);
-    if (i % 2 === 1) //cek jika bilangan ganjil
-        odd.push(i);
-    if (i % 5 === 0) //cek jika bilangan tersebut merupakan hasil perkalian 5 dengan memakai modulo
-        multifive.push(i);
-    if (bilanganPrimaCek(i)) { //cek apakah bilangan tersebut bilangan prima
-        primeNumber.push(i); //masukan bilangan ke list bilangan prima
-        if (i < 100) //jika bil. prima kurang dari 100 masukan ke list bil. prima kurang dari 100
-            primeNumberUnder.push(i);
+const prime = (number = 0) => {
+    if (number < 2) {
+        return false
     }
 
+    for (let index = 2; index < number; index++) {
+        if (number % index == 0) {
+            return false;
+        } else {
+            continue;
+        }
+    }
+
+    return true;
 }
 
-console.log('Even Number');
-console.log(even);
-console.log('Odd Number');
-console.log(odd);
-console.log('Prime Number');
-console.log(primeNumber);
-console.log('Prime Number Under 100');
-console.log(primeNumberUnder);
+console.log(numbers.filter((value) => value % 2 == 1));
+console.log(numbers.filter((value) => value % 2 == 0));
+console.log(numbers.filter((value) => value % 5 == 0));
+console.log(numbers.filter((value) => prime(value)));
+console.log(numbers.filter((value) => prime(value) && value < 100));

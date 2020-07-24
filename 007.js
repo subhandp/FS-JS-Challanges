@@ -18,10 +18,6 @@ Doraemon
 La... la... la...
 Aku sayang sekali`;
 
-let countWord = ['aku', 'ingin', 'dapat'];
-
-for (const word of countWord) {
-    let regex = new RegExp(word, 'gi');
-    let resultFind = words.match(regex); //mencari kata  pada seluruh string menggunakan protype match dengan parameter regex ket. gi untuk global dan insensitive kapital
-    console.log(word + ' : ' + resultFind.length + ' kali ditemukan'); //hitung banyak kata yang ditemukan
-}
+['aku', 'ingin', 'dapat'].map((value) => {
+    console.log('kata ' + value + ' ada ' + words.match(new RegExp(value, 'gi')).length);
+});
